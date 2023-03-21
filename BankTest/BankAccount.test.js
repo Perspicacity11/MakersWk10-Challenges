@@ -16,4 +16,11 @@ describe('Bank Account', () => {
         testAccount.deposit(1000)
         expect(testAccount.readBalance()).toBe(1000)
     })
+
+    it('Adds a credit deposit of £1000 and then withdraws £500; tests withdraw', () => {
+        let testAccount = new BankAccount();
+        testAccount.deposit(1000)
+        testAccount.withdraw(500)
+        expect(testAccount.readBalance()).toBe(500)
+    })
 })
