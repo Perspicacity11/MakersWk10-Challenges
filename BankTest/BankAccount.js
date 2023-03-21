@@ -26,6 +26,19 @@ class BankAccount {
         this.transactions.push(transaction);
         this.balance += total;
     } 
+
+    withdraw(total) {
+        const date = new Date();
+        const transaction = {
+        date: this.formatDate(date),
+        credit: 0,
+        debit: `${total}`,
+        balance: this.balance - total,
+        };
+        this.transactions.push(transaction);
+        this.balance -= total;
+    }
+  
 }
 
 module.exports = BankAccount;
