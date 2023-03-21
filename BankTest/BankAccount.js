@@ -16,6 +16,9 @@ class BankAccount {
     }
 
     deposit(total) {
+        if (!Number.isInteger(total)) {
+            throw new Error('Invalid input: please input an integer');
+        }
         const date = new Date();
         const transaction = {
             date: this.formatDate(date),
@@ -28,6 +31,9 @@ class BankAccount {
     } 
 
     withdraw(total) {
+        if (total > this.balance) {
+            throw Error('Insufficient funds for this withdrawal');
+        }
         const date = new Date();
         const transaction = {
         date: this.formatDate(date),
@@ -38,7 +44,7 @@ class BankAccount {
         this.transactions.push(transaction);
         this.balance -= total;
     }
-    
+
     getReceipt() {
         console.log("date || credit || debit || balance")
         this.transactions.forEach(transaction => {
