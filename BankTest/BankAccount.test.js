@@ -40,13 +40,13 @@ describe('Bank Account', () => {
         expect(testAccount.balance).toBe(750.31)
     })
 
-    it('Adds a credit deposit of £1000 and then tries to withdraw £1500; tests fail', () => {
+    it('Adds a credit deposit of £1000 and then tries to withdraw £1500; tests error handling for overdraft', () => {
         let testAccount = new BankAccount();
         testAccount.deposit(1000)
         expect(() => {testAccount.withdraw(1500)}).toThrow('Insufficient funds for this withdrawal')
     })
 
-    it('Attempts to add a credit deposit in a non-numerical form, and fails; tests fail', () => {
+    it('Attempts to add a credit deposit in a non-numerical form, and fails; tests error handling for invalid input', () => {
         let testAccount = new BankAccount();
         expect(() => {testAccount.deposit('WRONG INPUT')}).toThrow('Invalid input: please input a number')
     })

@@ -48,9 +48,3 @@ class BankAccount {
 }
 
 module.exports = BankAccount;
-
-let testAccount = new BankAccount;
-testAccount.deposit(1000.11)
-testAccount.withdraw(500.43)
-testAccount.deposit(250.63)
-testAccount.getReceipt()

@@ -20,7 +20,7 @@ With this achieved, I decided to first address attaching a pre-formatted datesta
 
 With all tests passing I then refactored the production code, removing the vestigial balance reader function and condensing the deposit/withdrawal object-construction.
 
-
+Finally, I reworked my error handling mechanism to accept decimalised inputs and reflect this in the receipt.
 
 Example input:
 ```
