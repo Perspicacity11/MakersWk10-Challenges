@@ -23,4 +23,17 @@ describe('Bank Account', () => {
         testAccount.withdraw(500)
         expect(testAccount.readBalance()).toBe(500)
     })
+    
+    it('Transacts three values in and out of the account and logs the formatted receipt; tests formatReceipt', () => {
+        let logSpy = jest.spyOn(console, 'log')
+        let testAccount = new BankAccount();
+        testAccount.deposit(1000)
+        testAccount.withdraw(500)
+        testAccount.deposit(1000)
+        expect(testAccount.readBalance()).toBe(1500)
+        testAccount.getReceipt()
+        expect(logSpy).toHaveBeenCalledWith(
+            "date || credit || debit || balance"
+        )
+    })
 })
