@@ -55,6 +55,11 @@ This will install dependencies in the package.json (namely ESLint, and Jest for 
 
 This programme runs in the command line REPL, and was built using Node.
 
+To run tests, navigate to the top directory and run
+```
+jest
+```
+
 ## Author
 
 Cassius Naylor ||
