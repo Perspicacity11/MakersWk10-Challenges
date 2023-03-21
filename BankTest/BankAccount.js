@@ -16,11 +16,13 @@ class BankAccount {
             throw new Error('Invalid input: please input a number');
         }
         const date = new Date();
+        const credit = total.toFixed(2); // Store credit with two decimal places
+        const balance = (this.balance + total).toFixed(2); // Update balance with two decimal places
         this.transactions.push({
             date: this.formatDate(date),
-            credit: `${total}`,
-            debit: 0,
-            balance: this.balance + total,
+            credit: credit,
+            debit: "",
+            balance: balance
         });
         this.balance += total;
     } 
@@ -30,11 +32,13 @@ class BankAccount {
             throw Error('Insufficient funds for this withdrawal');
         }
         const date = new Date();
+        const debit = total.toFixed(2); // Store debit with two decimal places
+        const balance = (this.balance - total).toFixed(2); // Update balance with two decimal places
         this.transactions.push({
             date: this.formatDate(date),
-            credit: 0,
-            debit: `${total}`,
-            balance: this.balance - total,
+            credit: "",
+            debit: debit,
+            balance: balance
         });
         this.balance -= total;
     }
@@ -48,3 +52,10 @@ class BankAccount {
 }
 
 module.exports = BankAccount;
+
+let testAccount = new BankAccount
+
+testAccount.deposit(1000.00)
+testAccount.withdraw(500.00)
+testAccount.deposit(250.00)
+testAccount.getReceipt()
