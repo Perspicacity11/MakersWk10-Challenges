@@ -10,4 +10,10 @@ describe('Bank Account', () => {
         let testAccount = new BankAccount();
         expect(testAccount.readBalance()).toBe(0)
     })
+
+    it('Adds a credit deposit of £1000; tests deposit', () => {
+        let testAccount = new BankAccount();
+        testAccount.deposit(1000)
+        expect(testAccount.readBalance()).toBe(1000)
+    })
 })
