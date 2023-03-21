@@ -1,7 +1,7 @@
 class BankAccount {
     constructor() {
         this.transactions = [];
-        this.balance = 0;
+        this.balance = 0.00;
     }
 
     formatDate(date) {
@@ -12,8 +12,8 @@ class BankAccount {
     }
 
     deposit(total) {
-        if (!Number.isInteger(total)) {
-            throw new Error('Invalid input: please input an integer');
+        if (typeof total !== "number") {
+            throw new Error('Invalid input: please input a number');
         }
         const date = new Date();
         this.transactions.push({
@@ -48,3 +48,9 @@ class BankAccount {
 }
 
 module.exports = BankAccount;
+
+let testAccount = new BankAccount;
+testAccount.deposit(1000.11)
+testAccount.withdraw(500.43)
+testAccount.deposit(250.63)
+testAccount.getReceipt()

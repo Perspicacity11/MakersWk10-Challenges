@@ -32,14 +32,22 @@ describe('Bank Account', () => {
         )
     })
 
+    it('Transacts three floating-point values in and out of the account and reads back the balance; tests float handling', () => {
+        let testAccount = new BankAccount();
+        testAccount.deposit(1000.11)
+        testAccount.withdraw(500.43)
+        testAccount.deposit(250.63)
+        expect(testAccount.balance).toBe(750.31)
+    })
+
     it('Adds a credit deposit of £1000 and then tries to withdraw £1500; tests fail', () => {
         let testAccount = new BankAccount();
         testAccount.deposit(1000)
         expect(() => {testAccount.withdraw(1500)}).toThrow('Insufficient funds for this withdrawal')
     })
 
-    it('Attempts to add a credit deposit in a non-integer form, and fails; tests fail', () => {
+    it('Attempts to add a credit deposit in a non-numerical form, and fails; tests fail', () => {
         let testAccount = new BankAccount();
-        expect(() => {testAccount.deposit('WRONG INPUT')}).toThrow('Invalid input: please input an integer')
+        expect(() => {testAccount.deposit('WRONG INPUT')}).toThrow('Invalid input: please input a number')
     })
 })
