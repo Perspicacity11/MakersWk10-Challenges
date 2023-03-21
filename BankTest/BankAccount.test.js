@@ -36,4 +36,15 @@ describe('Bank Account', () => {
             "date || credit || debit || balance"
         )
     })
+
+    it('Adds a credit deposit of £1000 and then tries to withdraw £1500; tests fail', () => {
+        let testAccount = new BankAccount();
+        testAccount.deposit(1000)
+        expect(() => {testAccount.withdraw(1500)}).toThrow('Insufficient funds for this withdrawal')
+    })
+
+    it('Attempts to add a credit deposit in a non-integer form, and fails; tests fail', () => {
+        let testAccount = new BankAccount();
+        expect(() => {testAccount.deposit('WRONG INPUT')}).toThrow('Invalid input: please input an integer')
+    })
 })
