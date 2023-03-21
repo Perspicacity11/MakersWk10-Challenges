@@ -38,7 +38,13 @@ class BankAccount {
         this.transactions.push(transaction);
         this.balance -= total;
     }
-  
+    
+    getReceipt() {
+        console.log("date || credit || debit || balance")
+        this.transactions.forEach(transaction => {
+            console.log(`${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`)
+        })
+    }
 }
 
 module.exports = BankAccount;
