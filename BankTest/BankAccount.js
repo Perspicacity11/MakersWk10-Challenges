@@ -3,10 +3,6 @@ class BankAccount {
         this.transactions = [];
         this.balance = 0;
     }
-    
-    readBalance() {
-        return this.balance;
-    }
 
     formatDate(date) {
         const day = ('0' + date.getDate()).slice(-2);
@@ -20,13 +16,12 @@ class BankAccount {
             throw new Error('Invalid input: please input an integer');
         }
         const date = new Date();
-        const transaction = {
+        this.transactions.push({
             date: this.formatDate(date),
             credit: `${total}`,
             debit: 0,
             balance: this.balance + total,
-        };
-        this.transactions.push(transaction);
+        });
         this.balance += total;
     } 
 
@@ -35,13 +30,12 @@ class BankAccount {
             throw Error('Insufficient funds for this withdrawal');
         }
         const date = new Date();
-        const transaction = {
-        date: this.formatDate(date),
-        credit: 0,
-        debit: `${total}`,
-        balance: this.balance - total,
-        };
-        this.transactions.push(transaction);
+        this.transactions.push({
+            date: this.formatDate(date),
+            credit: 0,
+            debit: `${total}`,
+            balance: this.balance - total,
+        });
         this.balance -= total;
     }
 
