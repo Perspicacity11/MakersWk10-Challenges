@@ -43,19 +43,38 @@ Example REPL output:
 
 ### Installing and executing
 
-Firstly, fork this repository and navigate to the local directory from where you would like to run the programme.
+Installation
+To run the application, you will need to have Node.js and npm (Node Package Manager) installed on your machine. You can check if you have them installed by running the following commands in your terminal:
+
+```
+node -v
+npm -v
+```
+
+If you don't have them installed, you can download them from the official Node.js website.
+
+Once you have Node.js and npm installed, you can clone this repository to your local machine using the following command:
 
 ```
 git clone https://github.com/[YOUR GITHUB USERNAME HERE]/MakersWk10-Challenges.git
+```
+Then, navigate to the BankTest directory like so:
 
-npm install
+```
+cd MakersWk10-Challenges/BankTest
 ```
 
-This will install dependencies in the package.json (namely ESLint, and Jest for testing)
+Usage
+To run the application, execute the following command in your terminal:
 
-This programme runs in the command line REPL, and was built using Node.
+```
+node BankTest.js
+```
 
-To run tests, navigate to the top directory and run
+This will start the application and display calls added to the bottom of the production code (examples provided).
+
+To run tests, navigate to the top directory and run:
+
 ```
 jest
 ```
